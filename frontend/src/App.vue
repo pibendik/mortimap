@@ -4,7 +4,7 @@
       <LeafletMap />
     </div>
     <div class="right">
-      <HelloWorld />
+      <TextEditor />
     </div>
   </div>
 </template>
@@ -21,16 +21,24 @@ body {
   margin: 0;
   /* Remove default margin */
 }
+
+.right {
+  overflow-y: auto;
+  /* Add vertical scrollbar */
+  padding: 20px;
+  /* Add padding */
+}
 </style>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TextEditor from './components/TextEditor.vue'
 import LeafletMap from './components/LeafletMap.vue'
+import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    TextEditor,
     LeafletMap
   }
 }
