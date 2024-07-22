@@ -17,14 +17,6 @@
   /* Set the height to full viewport height */
 }
 
-.left,
-.right {
-  overflow-y: auto;
-  /* Allow vertical scrolling */
-  height: 100vh;
-  /* Set the height to full viewport height */
-}
-
 body {
   margin: 0;
   /* Remove default margin */
