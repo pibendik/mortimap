@@ -2,10 +2,11 @@ version: '3.8'
 services:
   frontend:
     build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
     ports:
       - "8080:8080"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
     environment:
-      NODE_ENV: production
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run serve
