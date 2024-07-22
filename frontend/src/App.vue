@@ -4,8 +4,7 @@
       <LeafletMap />
     </div>
     <div class="right">
-      <img alt="Vue logo" src="./assets/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App" />
+      <HelloWorld />
     </div>
   </div>
 </template>
@@ -14,27 +13,23 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  height: 100vh;
+  /* Set the height to full viewport height */
 }
 
-.left {
-  grid-column: 1;
-}
-
+.left,
 .right {
-  grid-column: 2;
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  height: 100vh;
+  /* Set the height to full viewport height */
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+  /* Remove default margin */
 }
 </style>
-
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
