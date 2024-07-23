@@ -39,7 +39,7 @@
         </nav>
         <aside class="menu-pane">
             <ul class="menu-list">
-                <li class="highlight">New project</li>
+                <li class="highlight" @click="showModal = true">New project</li>
                 <li>All projects</li>
                 <li>Your projects</li>
                 <li>Shared with you</li>
@@ -84,6 +84,20 @@
                 </table>
             </section>
         </div>
+        <div v-if="showModal" class="modal">
+            <div class="modal-content">
+                <span class="close" @click="showModal = false">&times;</span>
+                <h2>New Project</h2>
+                <div class="search-box">
+
+                    <input type="text" placeholder="Project Name" v-model="projectName">
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-button" @click="showModal = false">Cancel</button>
+                    <button class="create-button" @click="createProject">Create</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -91,6 +105,20 @@
 import mockData from '@/assets/mock-data.json';
 
 export default {
+    data() {
+        return {
+            showModal: false,
+            projectName: '',
+        };
+    },
+    methods: {
+        createProject() {
+            // Implement project creation logic here
+            console.log("Project created:", this.projectName);
+            this.showModal = false;
+            this.projectName = ''; // Reset input field
+        },
+    },
     name: 'AdminPanel',
     computed: {
         sortedProjects() {
@@ -118,6 +146,31 @@ input[type="text"]:focus {
     background-color: #f2f2f2;
 }
 
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    /* Red */
+    color: white;
+}
+
+.create-button {
+    background-color: #254e27;
+    /* Green */
+    color: white;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -126,10 +179,8 @@ input[type="text"]:focus {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
+    background-color: #ffffff;
+    width: 280px;
     z-index: 1;
     right: 0;
     font-weight: normal;
@@ -142,13 +193,14 @@ input[type="text"]:focus {
 /* Style dropdown links */
 .dropdown-content li {
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content li:hover {
-    background-color: #f1f1f1;
+    background-color: #ffffff;
+    color: #0b222a;
+    font-weight: bold;
 }
 
 .search-box-container {
@@ -188,7 +240,6 @@ input[type="text"]:focus {
 
 .inner-navbar {
     background-color: #f5e9c68b;
-    padding: 0.6rem;
 }
 
 .inner-navbar ul {
@@ -266,5 +317,49 @@ li {
 
 li:hover {
     background-color: #AAD3DF;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    /* Adjust based on preference */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer button {
+    margin-left: 10px;
 }
 </style>
