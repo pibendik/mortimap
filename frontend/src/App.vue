@@ -2,16 +2,16 @@
   <div id="app">
     <header>
       <div>
-        <router-link to="/">Home</router-link>
+        <router-link to="/" class="logo">MORTIMAP</router-link>
       </div>
       <div>
         <!-- Simplified Navbar as a horizontal list -->
         <ul class="navbar">
-          <li>Item 1</li>
+          <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/admin">Admin</router-link></li>
           <li><router-link to="/editor">Editor</router-link></li>
-          <li><button class="signup-button">Sign up</button></li>
-          <li><router-link to="/loginPage">Login</router-link></li>
+          <li><router-link class="login-button" to="/loginPage">Login</router-link></li>
+          <li><router-link class="signup-button" to="/loginPage">Sign up</router-link></li>
         </ul>
       </div>
     </header>
@@ -50,7 +50,7 @@ header {
 }
 
 .navbar li {
-  margin-right: 20px;
+  margin-right: 3px;
   /* Adjust spacing between items */
 }
 
@@ -58,6 +58,47 @@ header {
   margin-right: 0;
   /* Remove margin for the last item */
 }
+
+.logo {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjusting for hover state */
+.logo:hover {
+  background-color: #e0e0e0;
+  text-decoration: none;
+}
+
+.navbar a,
+.navbar a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar a {
+  /* Button styles */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 400px;
+  text-decoration: none;
+  /* Ensures no underline */
+  display: inline-block;
+  border: none;
+}
+
+.navbar a:hover {
+
+  background-color: #007bff;
+  color: white;
+}
+
 
 .signup-button,
 .login-button {
@@ -68,9 +109,21 @@ header {
   border: none;
   color: white;
   border-radius: 5px;
+  text-decoration: none;
+  /* Ensures no underline */
+  display: inline-block;
+  /* Allows padding and other box model properties */
 }
 
 .login-button {
   background-color: #28a745;
+}
+
+
+/* Adjusting for hover state */
+.login-button:hover,
+.signup-button:hover {
+  background-color: darken(#007bff, 10%);
+  /* Example: Darkens the button color on hover */
 }
 </style>
