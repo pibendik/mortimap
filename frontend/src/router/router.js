@@ -13,21 +13,27 @@ const router = createRouter({
       path: "/",
       name: "LandingPage",
       component: LandingPage,
+
+      meta: { hideNavbar: false },
     },
     {
       path: "/loginPage",
       name: "LoginPage",
       component: LoginPage,
+
+      meta: { hideNavbar: false },
     },
     {
       path: "/editor",
       name: "CompleteEditor",
       component: CompleteEditor,
+      meta: { hideNavbar: true },
     },
     {
       path: "/admin",
       name: "AdminPanel",
       component: AdminPanel,
+      meta: { hideNavbar: true },
     },
   ],
 });

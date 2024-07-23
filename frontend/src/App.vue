@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header v-if="showHeader">
       <div class="logocontainer">
         <router-link to="/" class="logo">MORTIMAP</router-link>
       </div>
@@ -24,6 +24,13 @@ import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the 
 
 export default {
   name: 'App',
+  computed: {
+    // Computed property that returns true or false based on the current route's meta field
+    showHeader() {
+      // This will return true if hideNavbar is false or undefined, making the header visible
+      return !this.$route.meta.hideNavbar;
+    }
+  }
 }
 </script>
 

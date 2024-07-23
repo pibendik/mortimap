@@ -1,7 +1,10 @@
 <template>
     <div class="admin-panel">
-        <nav class="navbar">
-            <div class="logo">Logo</div>
+        <nav class="navbar inner-navbar">
+            <ul>
+                <router-link to="/">HOME</router-link>
+
+            </ul>
             <ul class="nav-list">
                 <li>Features</li>
                 <li>Templates</li>
@@ -11,16 +14,18 @@
                 <li class="highlight">Account</li>
             </ul>
         </nav>
+        <aside class="menu-pane">
+            <ul class="menu-list">
+                <li class="highlight">New project</li>
+                <li>All projects</li>
+                <li>Your projects</li>
+                <li>Shared with you</li>
+                <li>Archived projects</li>
+                <li>Trashed projects</li>
+            </ul>
+        </aside>
         <div class="main-content">
-            <aside class="menu-pane">
-                <ul class="menu-list">
-                    <li class="highlight">New project</li>
-                    <li>Your projects</li>
-                    <li>Shared with you</li>
-                    <li>Archived projects</li>
-                    <li>Trashed projects</li>
-                </ul>
-            </aside>
+
             <section class="project-display">
                 <table>
                     <thead>
@@ -50,15 +55,54 @@ export default {
 
 <style scoped>
 .admin-panel {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    /* Navbar height is auto, main content takes the rest */
+    grid-template-columns: 1fr 5fr;
+    /* Two columns, left is smaller */
+    grid-template-areas:
+        "navbar navbar"
+        "menu main";
+    height: 100vh;
+    /* Set the height to 100% of the viewport height */
 }
 
 .navbar {
-    margin-top: 4rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    grid-area: navbar;
+    margin: 0;
+    /* Adjusted to 0 because the grid gap can handle spacing */
+}
+
+.inner-navbar {
+    background-color: #f5e9c68b;
+    padding: 0.6rem;
+}
+
+.inner-navbar ul {
+    padding: 0.6rem;
+    margin: 0;
+
+}
+
+.inner-logo-container {
+    height: fit-content;
+    display: grid;
+    place-items: center;
+
+}
+
+.main-content {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr;
+    /* Ensures content takes full width of its area */
+}
+
+.menu-pane {
+    grid-area: menu;
+    background-color: #F5E9C6;
 }
 
 .nav-list {
@@ -74,16 +118,9 @@ export default {
     font-weight: bold;
 }
 
-.main-content {
-    display: flex;
-}
-
-.menu-pane {
-    flex: 1;
-}
 
 .menu-list {
-    display: flex;
+    padding-left: 0;
     flex-direction: column;
     list-style: none;
 }
@@ -94,6 +131,7 @@ export default {
 
 .project-display {
     flex: 4;
+    padding: 2rem;
 }
 
 table {
@@ -109,5 +147,13 @@ td {
 
 th {
     background-color: #f2f2f2;
+}
+
+li {
+    padding: 0.5rem;
+}
+
+li:hover {
+    background-color: #AAD3DF;
 }
 </style>
