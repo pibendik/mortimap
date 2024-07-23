@@ -65,16 +65,11 @@ header {
   color: #333;
   text-decoration: none;
   padding: 5px 10px;
-  background-color: #f0f0f0;
+  background-color: #AAD3DF;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Adjusting for hover state */
-.logo:hover {
-  background-color: #e0e0e0;
-  text-decoration: none;
-}
 
 .navbar a,
 .navbar a:visited {
@@ -95,8 +90,7 @@ header {
 
 .navbar a:hover {
 
-  background-color: #007bff;
-  color: white;
+  background-color: #ADD19E;
 }
 
 
@@ -105,7 +99,7 @@ header {
   /* Button styles */
   padding: 5px 10px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #AAD3DF;
   border: none;
   color: white;
   border-radius: 5px;
@@ -116,9 +110,8 @@ header {
 }
 
 .login-button {
-  background-color: #28a745;
+  background-color: #F5E9C6;
 }
-
 
 /* Adjusting for hover state */
 .login-button:hover,
