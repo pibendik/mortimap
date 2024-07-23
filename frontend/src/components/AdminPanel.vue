@@ -27,6 +27,16 @@
         <div class="main-content">
 
             <section class="project-display">
+                <div class="caption">
+                    <h2>Project List</h2>
+                </div>
+                <div class="search-box-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search projects...">
+                        <i class="search-icon"></i> <!-- Placeholder for the search icon -->
+                    </div>
+                </div>
+
                 <table>
                     <thead>
                         <tr>
@@ -38,7 +48,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Project rows will be dynamically inserted here -->
+
+                        <tr v-for="project in projects" :key="project.id">
+                            <td><input type="checkbox"></td>
+                            <td>{{ project.name }}</td>
+                            <td>{{ project.owner }}</td>
+                            <td>{{ project.lastModified }}</td>
+                            <td>{{ project.actions }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -47,13 +64,52 @@
 </template>
 
 <script>
+
 export default {
     name: 'AdminPanel',
-    // Component logic here
+    data() {
+        return {
+            projects: []
+        };
+    },
+    created() {
+        fetch('filestorage/projects/all_projects_bendik.json')
+            .then(response => response.json())
+            .then(data => {
+                this.projects = data;
+            })
+            .catch(error => console.error('Error loading the projects:', error));
+    }
 }
 </script>
 
 <style scoped>
+input {
+    padding: 0.5rem;
+    border: none;
+    width: 100%;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: grey;
+    background-color: #f2f2f2;
+}
+
+.search-box-container {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
 .admin-panel {
     display: grid;
     grid-template-rows: auto 1fr;
