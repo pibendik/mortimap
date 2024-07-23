@@ -117,6 +117,7 @@ export default {
             console.log("Project created:", this.projectName);
             this.showModal = false;
             this.projectName = ''; // Reset input field
+            this.$router.push('/assignment-creator');
         },
     },
     name: 'AdminPanel',

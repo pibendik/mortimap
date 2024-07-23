@@ -3,6 +3,7 @@ import LandingPage from "@/components/LandingPage.vue";
 import LoginPage from "@/components/LoginPage.vue";
 import CompleteEditor from "@/components/CompleteEditor.vue";
 import AdminPanel from "@/components/AdminPanel.vue";
+import AssignmentCreator from "@/components/AssignmentCreator.vue";
 
 // src/router/index.js
 
@@ -33,6 +34,12 @@ const router = createRouter({
       path: "/admin",
       name: "AdminPanel",
       component: AdminPanel,
+      meta: { hideNavbar: true },
+    },
+    {
+      path: "/assignment-creator",
+      name: "AssignmentCreator",
+      component: AssignmentCreator,
       meta: { hideNavbar: true },
     },
   ],
