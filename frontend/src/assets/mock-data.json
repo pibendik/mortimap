@@ -1,0 +1,74 @@
+[
+  {
+    "projectName": "Bergen Project",
+    "projectManager": "Bendik",
+    "lastModified": "2022-01-01",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Oslo Project",
+    "projectManager": "Bendik",
+    "lastModified": "2022-02-15",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Stockholm Project",
+    "projectManager": "Bendik",
+    "lastModified": "2012-03-30",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Copenhagen Project",
+    "projectManager": "Bendik",
+    "lastModified": "2022-04-10",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Reykjavik Project",
+    "projectManager": "Bendik",
+    "lastModified": "2012-05-20",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Helsinki Project",
+    "projectManager": "Emma Eriksen",
+    "lastModified": "2020-06-05",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Abisko Project",
+    "projectManager": "Elsa Eriksson",
+    "lastModified": "2022-07-01",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Kiruna Project",
+    "projectManager": "Gustav Gustavsson",
+    "lastModified": "2022-08-15",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Luleå Project",
+    "projectManager": "Maja Nilsson",
+    "lastModified": "2022-09-30",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Jokkmokk Project",
+    "projectManager": "Oskar Persson",
+    "lastModified": "2022-10-10",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Abisko National Park Project",
+    "projectManager": "Ida Lindström",
+    "lastModified": "2022-11-20",
+    "actions": "View/Edit/Delete"
+  },
+  {
+    "projectName": "Sarek Project",
+    "projectManager": "Viktor Bergman",
+    "lastModified": "2022-12-05",
+    "actions": "View/Edit/Delete"
+  }
+]

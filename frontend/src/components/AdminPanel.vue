@@ -49,11 +49,12 @@
                     </thead>
                     <tbody>
 
-                        <tr v-for="project in projects" :key="project.id">
+                        <tr v-for="project in sortedProjects" :key="project.id">
                             <td><input type="checkbox"></td>
-                            <td>{{ project.name }}</td>
-                            <td>{{ project.owner }}</td>
+                            <td>{{ project.projectName }}</td>
+                            <td>{{ project.projectManager }}</td>
                             <td>{{ project.lastModified }}</td>
+                            <!-- Assuming you want to use startDate as lastModified -->
                             <td>{{ project.actions }}</td>
                         </tr>
                     </tbody>
@@ -64,22 +65,20 @@
 </template>
 
 <script>
+import mockData from '@/assets/mock-data.json';
 
 export default {
     name: 'AdminPanel',
-    data() {
-        return {
-            projects: []
-        };
+    computed: {
+        sortedProjects() {
+            return mockData.sort((a, b) => {
+                // Assuming startDate is in 'YYYY-MM-DD' format; if not, you'll need to adjust parsing
+                const dateA = new Date(a.lastModified);
+                const dateB = new Date(b.lastModified);
+                return dateA - dateB; // For ascending order; use `dateB - dateA` for descending
+            });
+        },
     },
-    created() {
-        fetch('filestorage/projects/all_projects_bendik.json')
-            .then(response => response.json())
-            .then(data => {
-                this.projects = data;
-            })
-            .catch(error => console.error('Error loading the projects:', error));
-    }
 }
 </script>
 
