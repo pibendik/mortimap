@@ -8,7 +8,7 @@
         <!-- Simplified Navbar as a horizontal list -->
         <ul class="navbar">
           <li>Item 1</li>
-          <li>Item 2</li>
+          <li><router-link to="/admin">Admin</router-link></li>
           <li><router-link to="/editor">Editor</router-link></li>
           <li><button class="signup-button">Sign up</button></li>
           <li><router-link to="/loginPage">Login</router-link></li>
@@ -28,6 +28,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 header {
   display: flex;
   align-items: center;
