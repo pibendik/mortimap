@@ -6,12 +6,35 @@
 
             </ul>
             <ul class="nav-list">
-                <li>Features</li>
+                <li class="highlight dropdown">
+                    Features
+                    <ul class="dropdown-content">
+                        <li>ROS analyser (Norway)</li>
+                        <li>Air Quality measuring stations</li>
+                        <li>Industry Proximity</li>
+                        <li>Pollen Data</li>
+                    </ul>
+                </li>
                 <li>Templates</li>
                 <li>Plans and pricing</li>
-                <li>Help</li>
+                <li class="highlight dropdown">
+                    Help
+                    <ul class="dropdown-content">
+                        <li>Why MORTIMAP?</li>
+                        <li>Documentation</li>
+                        <li>Contact us</li>
+                    </ul>
+                </li>
                 <li class="highlight">Projects</li>
-                <li class="highlight">Account</li>
+                <li class="highlight dropdown">
+                    Account
+                    <ul class="dropdown-content">
+                        <li>john.lennon@proton.com</li>
+                        <li>Account Settings</li>
+                        <li>Subscription</li>
+                        <li>Log out</li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <aside class="menu-pane">
@@ -93,6 +116,39 @@ input[type="text"]:focus {
     outline: none;
     border-color: grey;
     background-color: #f2f2f2;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    right: 0;
+    font-weight: normal;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style dropdown links */
+.dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li:hover {
+    background-color: #f1f1f1;
 }
 
 .search-box-container {
