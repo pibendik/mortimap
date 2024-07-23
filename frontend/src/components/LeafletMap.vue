@@ -11,7 +11,7 @@ export default {
     name: 'LeafletMap',
     mounted() {
         // Initialize the map
-        const map = L.map('map').setView([63.839833, 20.172167], 20);
+        const map = L.map('map').setView([63.839833, 20.172167], 12);
 
         // Base layer: OpenStreetMap
         const openStreetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
