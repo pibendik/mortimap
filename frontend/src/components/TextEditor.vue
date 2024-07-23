@@ -16,4 +16,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.text-editor-container {
+  margin-top: 3rem;
+}
+</style>

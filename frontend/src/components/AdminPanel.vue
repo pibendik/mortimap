@@ -55,10 +55,10 @@ export default {
 }
 
 .navbar {
+    margin-top: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
 }
 
 .nav-list {

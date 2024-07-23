@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <div>
+      <div class="logocontainer">
         <router-link to="/" class="logo">MORTIMAP</router-link>
       </div>
       <div>
@@ -35,28 +35,37 @@ body {
 }
 
 header {
+  background-color: #007bff43;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
   color: black;
+  width: 100%;
+  position: fixed;
+  /* or 'fixed' if you want it to stay at the top of the viewport */
+  z-index: 1000;
+  /* Ensures it's above other content; adjust the value as needed */
 }
 
 .navbar {
   list-style: none;
   display: flex;
-  margin: 0;
+  margin: 0.66rem;
   padding: 0;
 }
 
 .navbar li {
-  margin-right: 3px;
+  margin-right: 0.66rem;
   /* Adjust spacing between items */
 }
 
 .navbar li:last-child {
   margin-right: 0;
   /* Remove margin for the last item */
+}
+
+.logocontainer {
+  margin-left: 0.66rem;
 }
 
 .logo {

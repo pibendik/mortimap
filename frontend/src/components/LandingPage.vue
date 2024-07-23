@@ -1,6 +1,5 @@
 <template>
     <div class="landing-page">
-
         <main>
             <!-- Main content -->
             <section class="hero">
@@ -57,7 +56,7 @@ export default {
 
 .hero {
     background-color: #f8f9fa;
-    padding: 2rem 0;
+    padding: 3rem 0 2rem;
     text-align: center;
 
 }
@@ -72,9 +71,5 @@ export default {
     height: 300px;
     object-fit: cover;
     object-position: top;
-}
-
-.landing-page {
-    font-family: Arial, sans-serif;
 }
 </style>
