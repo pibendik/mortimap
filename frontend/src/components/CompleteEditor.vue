@@ -31,6 +31,7 @@ body {
 </style>
 
 <script>
+
 import TextEditor from './TextEditor.vue'
 import LeafletMap from './LeafletMap.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme

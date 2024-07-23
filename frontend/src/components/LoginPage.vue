@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from 'axios'; // Step 1: Import axios
+
 export default {
     data() {
         return {
@@ -31,12 +33,16 @@ export default {
                 password: this.password
             })
                 .then(response => {
+
                     // Handle successful login
                     // Redirect or perform any other actions
+                    console.log(response.data);
                 })
                 .catch(error => {
                     // Handle login error
                     // Display error message or perform any other actions
+                    console.log(error.data);
+
                 });
         }
     }

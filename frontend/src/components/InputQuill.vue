@@ -31,8 +31,7 @@ export default {
         });
     },
     beforeUnmount() {
-        // Destroy the Quill instance when the component is unmounted
-        if (this.quill) {
+        if (this.quill && typeof this.quill.destroy === 'function') {
             this.quill.destroy();
         }
     },

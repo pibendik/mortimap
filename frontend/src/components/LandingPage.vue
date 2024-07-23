@@ -1,25 +1,6 @@
 <template>
     <div class="landing-page">
 
-
-        <header>
-            <div>
-                <div>MORTIMAP</div>
-            </div>
-            <div>
-                <!-- Simplified Navbar as a horizontal list -->
-                <ul class="navbar">
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                    <li><button class="signup-button">Sign up</button></li>
-                    <li><button class="login-button">Log in</button></li>
-                </ul>
-            </div>
-
-
-        </header>
-
         <main>
             <!-- Main content -->
             <section class="hero">
@@ -95,45 +76,5 @@ export default {
 
 .landing-page {
     font-family: Arial, sans-serif;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    color: black;
-}
-
-.navbar {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar li {
-    margin-right: 20px;
-    /* Adjust spacing between items */
-}
-
-.navbar li:last-child {
-    margin-right: 0;
-    /* Remove margin for the last item */
-}
-
-.signup-button,
-.login-button {
-    /* Button styles */
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    border-radius: 5px;
-}
-
-.login-button {
-    background-color: #28a745;
 }
 </style>
