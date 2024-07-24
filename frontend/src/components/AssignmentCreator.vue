@@ -13,18 +13,30 @@
             </ul>
         </div>
     </div>
-    <div class="grid-container">
 
-        <div class="left-top">
-            <LeafletMap />
+    <LeafletMap id="map" />
+    <div class="editor-container" ref="editorContainer">
+        <div class="resizer" @mousedown="startResize">
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="arrow-container">
+                <div class="arrow"> &lt; </div>
+            </div>
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
-        <div class="left-bottom">
-            <UploadMapLayer />
-        </div>
-        <div class="right">
+        <div id="editor" ref="editor">
             <AssignmentTextEditor />
         </div>
     </div>
+    <UploadMapLayer id="upload" />
+
 </template>
 
 <script>
@@ -49,50 +61,128 @@ export default {
     methods: {
         toggleDropdown() {
             this.isDropdownVisible = !this.isDropdownVisible;
-        }
+        },
+
+        startResize(event) {
+            // Prevent default action to avoid selecting text during drag, etc.
+            event.preventDefault();
+
+            document.addEventListener('mousemove', this.resizeContainer);
+            document.addEventListener('mouseup', this.stopResize);
+        },
+        resizeContainer(event) {
+            // Calculate new width based on the mouse position
+            // This is a basic example; you might need to adjust the calculation based on your layout
+            const newWidth = (window.innerWidth - event.clientX) + 'px';
+
+            // Apply the new width to the container
+            this.$refs.editorContainer.style.width = newWidth;
+        },
+        stopResize() {
+            // Remove the event listeners when the mouse is released
+            document.removeEventListener('mousemove', this.resizeContainer);
+            console.log('stopResize');
+            document.removeEventListener('mouseup', this.stopResize);
+        },
     }
 }
 </script>
-
 <style>
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4fr 1fr;
+#upload {
+    z-index: 500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+    height: 20%;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.503);
+    backdrop-filter: blur(10px);
+    display: flex;
+
+}
+
+#map {
+    width: 100vw;
     height: 100vh;
+}
+
+.resizer {
+    z-index: 1004;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    right: 50vw;
+    width: 7px;
+    height: 100vh;
+    background-color: rgba(232, 232, 232, 0.714);
+}
+
+.resizer:hover {
+    cursor: ew-resize;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(187, 187, 187);
+}
+
+
+.arrow-container:hover {
+    cursor: pointer;
+}
+
+.dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: rgb(187, 187, 187);
+    border-radius: 50%;
+    margin: 2px;
+}
+
+#editor {
+    z-index: 1000;
+    position: absolute;
+    padding-left: 1rem;
+}
+
+.editor-container {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    display: flex;
 }
 
 body {
     margin: 0;
 }
 
-hr {
-    color: #7777771c;
-}
-
-.left-top {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-}
-
-.left-bottom {
-    grid-column: 1;
-    grid-row: 2;
-    z-index: 1000;
-    background-color: #aad3df67;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.right {
-    overflow-y: auto;
-    padding: 20px;
-    grid-column: 2;
-    grid-row: 1 / span 2;
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .header {
+    z-index: 1001;
     position: relative;
 }
 
@@ -107,17 +197,14 @@ hr {
 }
 
 .hamburgerdropdown {
-    top: 2.5rem;
-    right: 2.5rem;
     background-color: white;
     box-shadow: 0 7px 9px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown {
     position: absolute;
+    right: 0;
     z-index: 1;
-
-    transition: box-shadow 0.3s ease-in-out;
 }
 
 .dropdown ul {
