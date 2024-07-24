@@ -47,7 +47,7 @@ export default {
             "Marker": marker
         };
 
-        L.control.layers(baseMaps, overlayMaps, { position: 'bottomright' }).addTo(map);
+        L.control.layers(baseMaps, overlayMaps, { position: 'topright', collapsed: false }).addTo(map);
     }
 }
 </script>

@@ -22,14 +22,14 @@
             <UploadMapLayer />
         </div>
         <div class="right">
-            <TextEditor />
+            <AssignmentTextEditor />
         </div>
     </div>
 </template>
 
 <script>
 
-import TextEditor from './TextEditor.vue'
+import AssignmentTextEditor from './AssignmentTextEditor.vue'
 import LeafletMap from './LeafletMap.vue'
 import UploadMapLayer from './UploadMapLayer.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
@@ -37,7 +37,7 @@ import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the 
 export default {
     name: 'CompleteEditor',
     components: {
-        TextEditor,
+        AssignmentTextEditor,
         LeafletMap,
         UploadMapLayer
     },
@@ -64,6 +64,10 @@ export default {
 
 body {
     margin: 0;
+}
+
+hr {
+    color: #7777771c;
 }
 
 .left-top {
@@ -104,8 +108,12 @@ body {
 
 .dropdown {
     position: absolute;
-    right: 0;
+    top: 2.5rem;
+    right: 2.5rem;
     z-index: 1;
+    background-color: white;
+    box-shadow: 0 7px 9px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .dropdown ul {
