@@ -6,8 +6,13 @@
 
             </ul>
             <ul class="nav-list">
-                <li class="highlight dropdown">
+                <li>
                     Features
+
+                </li>
+
+                <li>Plans and pricing</li>
+                <li class="highlight dropdown">Templates
                     <ul class="dropdown-content">
                         <li>ROS analyser (Norway)</li>
                         <li>Air Quality measuring stations</li>
@@ -15,8 +20,6 @@
                         <li>Pollen Data</li>
                     </ul>
                 </li>
-                <li>Templates</li>
-                <li>Plans and pricing</li>
                 <li class="highlight dropdown">
                     Help
                     <ul class="dropdown-content">
@@ -25,7 +28,7 @@
                         <li>Contact us</li>
                     </ul>
                 </li>
-                <li class="highlight">Projects</li>
+                <li class="highlight">Admin</li>
                 <li class="highlight dropdown">
                     Account
                     <ul class="dropdown-content">
