@@ -15,5 +15,8 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>
+<style scoped>
+.text-editor-container {
+  padding: 1rem;
+}
+</style>

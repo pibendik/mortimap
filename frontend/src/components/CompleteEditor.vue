@@ -13,12 +13,23 @@
             </ul>
         </div>
     </div>
-    <div class="grid-container">
 
-        <div class="left">
-            <LeafletMap />
+    <LeafletMap id="map" />
+    <div id="container" ref="container">
+        <div id="resizer" @mousedown="onMouseDown">
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="arrow"></div>
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
-        <div class="right">
+        <div id="editor" ref="editor">
             <TextEditor />
         </div>
     </div>
@@ -44,16 +55,74 @@ export default {
     methods: {
         toggleDropdown() {
             this.isDropdownVisible = !this.isDropdownVisible;
-        }
+        },
     }
 }
 </script>
 
 <style>
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+#map {
+    width: 100vw;
     height: 100vh;
+}
+
+#resizer {
+    padding: 1px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    right: 50vw;
+    width: 7px;
+    height: 100vh;
+    background-color: rgba(232, 232, 232, 0.714);
+}
+
+#resizer:hover {
+    cursor: ew-resize;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid black;
+
+}
+
+.dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background-color: grey;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+#editor {
+    z-index: 1000;
+    position: absolute;
+}
+
+#container {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    display: flex;
 }
 
 body {
@@ -65,16 +134,8 @@ a {
     color: black;
 }
 
-.left {
-    height: 100vh;
-}
-
-.right {
-    overflow-y: auto;
-    padding: 20px;
-}
-
 .header {
+    z-index: 1001;
     position: relative;
 }
 
