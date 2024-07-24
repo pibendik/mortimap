@@ -3,7 +3,7 @@
         <div class="hamburger-menu" @click="toggleDropdown">
             &#9776; <!-- Hamburger icon -->
         </div>
-        <div class="dropdown, hamburgerdropdown" v-if="isDropdownVisible">
+        <div class="dropdown hamburgerdropdown" v-if="isDropdownVisible">
             <ul>
                 <li><router-link to="/">Home</router-link></li>
                 <li><router-link to="/admin">Admin</router-link></li>
@@ -47,7 +47,7 @@ import UploadMapLayer from './UploadMapLayer.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
 
 export default {
-    name: 'CompleteEditor',
+    name: 'AssignmentCreator',
     components: {
         AssignmentTextEditor,
         LeafletMap,
@@ -199,6 +199,7 @@ a {
 .hamburgerdropdown {
     background-color: white;
     box-shadow: 0 7px 9px rgba(0, 0, 0, 0.2);
+    top: 4rem;
 }
 
 .dropdown {
