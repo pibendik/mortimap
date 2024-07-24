@@ -15,14 +15,16 @@
     </div>
 
     <LeafletMap id="map" />
-    <div id="container" ref="container">
-        <div id="resizer" @mousedown="onMouseDown">
+    <div class="editor-container" ref="editorContainer">
+        <div class="resizer" @mousedown="startResize">
             <div class="dots">
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
             </div>
-            <div class="arrow"></div>
+            <div class="arrow-container">
+                <div class="arrow"> &lt; </div>
+            </div>
             <div class="dots">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -36,17 +38,18 @@
 </template>
 
 <script>
-
 import TextEditor from './TextEditor.vue'
 import LeafletMap from './LeafletMap.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
 
 export default {
+
     name: 'CompleteEditor',
     components: {
         TextEditor,
         LeafletMap
     },
+
     data() {
         return {
             isDropdownVisible: false,
@@ -55,6 +58,27 @@ export default {
     methods: {
         toggleDropdown() {
             this.isDropdownVisible = !this.isDropdownVisible;
+        },
+        startResize(event) {
+            // Prevent default action to avoid selecting text during drag, etc.
+            event.preventDefault();
+
+            document.addEventListener('mousemove', this.resizeContainer);
+            document.addEventListener('mouseup', this.stopResize);
+        },
+        resizeContainer(event) {
+            // Calculate new width based on the mouse position
+            // This is a basic example; you might need to adjust the calculation based on your layout
+            const newWidth = (window.innerWidth - event.clientX) + 'px';
+
+            // Apply the new width to the container
+            this.$refs.editorContainer.style.width = newWidth;
+        },
+        stopResize() {
+            // Remove the event listeners when the mouse is released
+            document.removeEventListener('mousemove', this.resizeContainer);
+            console.log('stopResize');
+            document.removeEventListener('mouseup', this.stopResize);
         },
     }
 }
@@ -66,8 +90,8 @@ export default {
     height: 100vh;
 }
 
-#resizer {
-    padding: 1px;
+.resizer {
+    z-index: 1004;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -80,17 +104,22 @@ export default {
     background-color: rgba(232, 232, 232, 0.714);
 }
 
-#resizer:hover {
+.resizer:hover {
     cursor: ew-resize;
 }
 
-.arrow {
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 7px solid black;
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(187, 187, 187);
+}
 
+
+.arrow-container:hover {
+    cursor: pointer;
 }
 
 .dots {
@@ -100,19 +129,20 @@ export default {
 }
 
 .dot {
-    width: 7px;
-    height: 7px;
-    background-color: grey;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(187, 187, 187);
     border-radius: 50%;
-    margin: 5px;
+    margin: 2px;
 }
 
 #editor {
     z-index: 1000;
     position: absolute;
+    padding-left: 1rem;
 }
 
-#container {
+.editor-container {
     position: absolute;
     z-index: 1000;
     top: 0;
