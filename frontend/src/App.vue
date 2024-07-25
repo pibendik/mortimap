@@ -2,7 +2,7 @@
   <div id="app">
     <NavBarLoggedIn v-if="showHeader && isLoggedIn" />
     <NavBarLoggedOut v-if="showHeader && !isLoggedIn" />
-    <router-view></router-view>
+    <router-view @login-success="handleLoginSuccess"></router-view>
   </div>
 </template>
 
@@ -21,6 +21,12 @@ export default {
     return {
       isLoggedIn: false // This should be dynamically set based on your auth logic
     };
+  },
+  methods: {
+    handleLoginSuccess() {
+      this.isLoggedIn = true;
+      this.$router.push({ name: 'AdminPanel' });
+    }
   },
   computed: {
     // Computed property that returns true or false based on the current route's meta field

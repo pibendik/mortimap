@@ -10,13 +10,12 @@
             <label for="password">Password:</label>
             <input type="password" id="password" v-model="password" class="form-control" required>
             <br>
-            <button type="submit" class="login-button">Login</button>
+            <button type="submit" class="login-button" @click="handleLogin">Login</button>
         </form>
     </div>
 </template>
 
 <script>
-import axios from 'axios'; // Step 1: Import axios
 
 export default {
     data() {
@@ -26,26 +25,8 @@ export default {
         };
     },
     methods: {
-        login() {
-            // Send login request to Django backend
-            // You can use axios or any other HTTP library for this
-            // Example using axios:
-            axios.post('/api/login/', {
-                username: this.username,
-                password: this.password
-            })
-                .then(response => {
-
-                    // Handle successful login
-                    // Redirect or perform any other actions
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    // Handle login error
-                    // Display error message or perform any other actions
-                    console.log(error.data);
-
-                });
+        handleLogin() {
+            this.$emit('login-success');
         }
     }
 };

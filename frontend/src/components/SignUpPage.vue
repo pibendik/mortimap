@@ -40,10 +40,10 @@ export default {
     },
     methods: {
         register() {
-            // Registration logic here
+            this.$emit('login-success');
         },
         registerWithGoogle() {
-            // Google registration logic here
+            this.$emit('login-success');
         }
     }
 };
