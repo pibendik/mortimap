@@ -34,7 +34,7 @@
         <footer>
             <!-- Standard footer -->
             <div class="container">
-                <p>&copy; 2022 Your Company. All rights reserved.</p>
+                <p>&copy; 2024, Bendik Svalastog, LHM. All rights reserved.</p>
             </div>
         </footer>
     </div>

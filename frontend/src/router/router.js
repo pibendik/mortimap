@@ -34,13 +34,13 @@ const router = createRouter({
       path: "/admin",
       name: "AdminPanel",
       component: AdminPanel,
-      meta: { hideNavbar: true },
+      meta: { hideNavbar: false },
     },
     {
       path: "/assignment-creator",
       name: "AssignmentCreator",
       component: AssignmentCreator,
-      meta: { hideNavbar: true },
+      meta: { hideNavbar: false },
     },
   ],
 });

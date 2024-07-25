@@ -1,6 +1,9 @@
 # Bendik's frontend app docs:
 
+just do "docker-compose up --build" and everything works. hot reloading and all.
 
+# TODO
+navbar stuff
 
 
 # legacy docs:

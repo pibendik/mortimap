@@ -1,53 +1,13 @@
 <template>
     <div class="admin-panel">
-        <nav class="navbar inner-navbar">
-            <ul>
-                <router-link to="/">HOME</router-link>
-
-            </ul>
-            <ul class="nav-list">
-                <li>
-                    Features
-
-                </li>
-
-                <li>Plans and pricing</li>
-                <li class="highlight dropdown">Templates
-                    <ul class="dropdown-content">
-                        <li>ROS analyser (Norway)</li>
-                        <li>Air Quality measuring stations</li>
-                        <li>Industry Proximity</li>
-                        <li>Pollen Data</li>
-                    </ul>
-                </li>
-                <li class="highlight dropdown">
-                    Help
-                    <ul class="dropdown-content">
-                        <li>Why MORTIMAP?</li>
-                        <li>Documentation</li>
-                        <li>Contact us</li>
-                    </ul>
-                </li>
-                <li class="highlight">Admin</li>
-                <li class="highlight dropdown">
-                    Account
-                    <ul class="dropdown-content">
-                        <li>john.lennon@proton.com</li>
-                        <li>Account Settings</li>
-                        <li>Subscription</li>
-                        <li>Log out</li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
         <aside class="menu-pane">
             <ul class="menu-list">
-                <li class="highlight" @click="showModal = true">New project</li>
-                <li>All projects</li>
-                <li>Your projects</li>
-                <li>Shared with you</li>
-                <li>Archived projects</li>
-                <li>Trashed projects</li>
+                <li class="highlight project-views-li" @click="showModal = true">New project</li>
+                <li class="project-views-li">All projects</li>
+                <li class="project-views-li">Your projects</li>
+                <li class="project-views-li">Shared with you</li>
+                <li class="project-views-li">Archived projects</li>
+                <li class="project-views-li">Trashed projects</li>
             </ul>
         </aside>
         <div class="main-content">
@@ -175,37 +135,6 @@ button:hover {
     color: white;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    width: 280px;
-    z-index: 1;
-    right: 0;
-    font-weight: normal;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Style dropdown links */
-.dropdown-content li {
-    color: black;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content li:hover {
-    background-color: #ffffff;
-    color: #0b222a;
-    font-weight: bold;
-}
 
 .search-box-container {
     margin: 1rem 0;
@@ -234,31 +163,6 @@ button:hover {
     /* Set the height to 100% of the viewport height */
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    grid-area: navbar;
-    margin: 0;
-    /* Adjusted to 0 because the grid gap can handle spacing */
-}
-
-.inner-navbar {
-    background-color: #f5e9c68b;
-}
-
-.inner-navbar ul {
-    padding: 0.6rem;
-    margin: 0;
-
-}
-
-.inner-logo-container {
-    height: fit-content;
-    display: grid;
-    place-items: center;
-
-}
-
 .main-content {
     display: grid;
     grid-area: main;
@@ -269,19 +173,6 @@ button:hover {
 .menu-pane {
     grid-area: menu;
     background-color: #F5E9C6;
-}
-
-.nav-list {
-    display: flex;
-    list-style: none;
-}
-
-.nav-list li {
-    margin: 0 1rem;
-}
-
-.nav-list li.highlight {
-    font-weight: bold;
 }
 
 
@@ -315,12 +206,12 @@ th {
     background-color: #f2f2f2;
 }
 
-li {
+.project-views-li {
     padding: 0.5rem;
 }
 
-li:hover {
-    background-color: #AAD3DF;
+.project-views-li:hover {
+    background-color: #00c3ff;
 }
 
 .modal {
