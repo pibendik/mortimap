@@ -29,15 +29,6 @@
                         <li>Contact us</li>
                     </ul>
                 </li>
-                <li class="highlight dropdown">
-                    Account
-                    <ul class="dropdown-content">
-                        <li>john.lennon@proton.com</li>
-                        <li>Account Settings</li>
-                        <li>Subscription</li>
-                        <li>Log out</li>
-                    </ul>
-                </li>
             </ul>
 
         </ul>

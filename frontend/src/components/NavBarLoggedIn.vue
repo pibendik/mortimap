@@ -5,7 +5,16 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/admin">Admin</router-link></li>
             <li><router-link to="/editor">Editor</router-link></li>
-            <li><router-link to="/logout">Logout</router-link></li>
+            <li class="highlight dropdown">
+                Account
+                <ul class="dropdown-content">
+                    <li>john.lennon@proton.com</li>
+                    <li>Account Settings</li>
+                    <li>Subscription</li>
+                    <li @click="handleLogout">Log out
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </template>
@@ -16,21 +25,20 @@ export default {
     name: "NavBarLoggedOut",
     components: {
         NavBarCommon
+    },
+    methods: {
+        handleLogout() {
+            console.log('Logging ouasdft');
+            this.$emit('logout');
+        }
     }
 };
 </script>
 
 <style scoped>
-.navbarcontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
 li {
     display: inline-block;
-    padding: 0.2rem 1.2rem;
+    padding: 10px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -38,6 +46,35 @@ li {
 li:hover {
     background-color: #f2f2f2;
 }
+
+.dropdown {
+    position: relative;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+    top: 3rem;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.navbarcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
 
 .login-button {
     background-color: #4CAF50;

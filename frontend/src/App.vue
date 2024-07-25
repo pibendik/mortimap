@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBarLoggedIn v-if="showHeader && isLoggedIn" />
+    <NavBarLoggedIn @logout="handleLogout" v-if="showHeader && isLoggedIn" />
     <NavBarLoggedOut v-if="showHeader && !isLoggedIn" />
     <router-view @login-success="handleLoginSuccess"></router-view>
   </div>
@@ -26,6 +26,11 @@ export default {
     handleLoginSuccess() {
       this.isLoggedIn = true;
       this.$router.push({ name: 'AdminPanel' });
+    },
+    handleLogout() {
+      console.log('Logging out...');
+      this.isLoggedIn = false;
+      this.$router.push({ name: 'LandingPage' });
     }
   },
   computed: {
