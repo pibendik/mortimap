@@ -1,5 +1,7 @@
 <template>
     <div class="login-container">
+        <a href="/"><img src="@/assets/logo.png" alt="Logo" class="logo"></a>
+
         <h1>Login</h1>
         <form @submit.prevent="login" class="form-group">
             <label for="username">Username:</label>

@@ -2,7 +2,7 @@
     <div class="top-container">
 
         <div class="signup-container">
-            <img src="@/assets/logo.png" alt="Logo" class="logo">
+            <a href="/"><img src="@/assets/logo.png" alt="Logo" class="logo"></a>
             <h1>Sign Up</h1>
             <form @submit.prevent="register" class="form-group">
                 <label for="email">Email:</label>
@@ -21,6 +21,8 @@
             </div>
             <p class="terms">
                 By creating an account, you agree to our <a href="/terms">Terms and Conditions</a>.
+                <br>
+                Already have an account? <a href="/login">Login</a>
             </p>
         </div>
     </div>
