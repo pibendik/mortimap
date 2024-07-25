@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "@/components/LandingPage.vue";
 import LoginPage from "@/components/LoginPage.vue";
+import SignUpPage from "@/components/SignUpPage.vue";
 import CompleteEditor from "@/components/CompleteEditor.vue";
 import AdminPanel from "@/components/AdminPanel.vue";
 import AssignmentCreator from "@/components/AssignmentCreator.vue";
@@ -21,8 +22,13 @@ const router = createRouter({
       path: "/loginPage",
       name: "LoginPage",
       component: LoginPage,
-
-      meta: { hideNavbar: false },
+      meta: { hideNavbar: true },
+    },
+    {
+      path: "/signUpPage",
+      name: "SignUpPage",
+      component: SignUpPage,
+      meta: { hideNavbar: true },
     },
     {
       path: "/editor",

@@ -3,7 +3,7 @@
         <NavBarCommon />
         <ul>
             <li class="padding login-button"><router-link to="/loginPage">Login</router-link></li>
-            <li class="padding signup-button"><router-link to="/loginPage">Sign up</router-link></li>
+            <li class="padding signup-button"><router-link to="/signUpPage">Sign up</router-link></li>
         </ul>
     </div>
 </template>
