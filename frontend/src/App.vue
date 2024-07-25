@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <NavBarLoggedIn v-if="showHeader" />
+    <NavBarLoggedIn v-if="showHeader && isLoggedIn" />
+    <NavBarLoggedOut v-if="showHeader && !isLoggedIn" />
     <router-view></router-view>
   </div>
 </template>
@@ -8,11 +9,18 @@
 <script>
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
 import NavBarLoggedIn from './components/NavBarLoggedIn.vue';
+import NavBarLoggedOut from './components/NavBarLoggedOut.vue';
 
 export default {
   name: 'App',
   components: {
-    NavBarLoggedIn
+    NavBarLoggedIn,
+    NavBarLoggedOut
+  },
+  data() {
+    return {
+      isLoggedIn: false // This should be dynamically set based on your auth logic
+    };
   },
   computed: {
     // Computed property that returns true or false based on the current route's meta field
