@@ -16,24 +16,8 @@
 
     <LeafletMap id="map" @click="removeDropdown" />
     <div class="editor-container" ref="editorContainer" @click="removeDropdown">
-        <div class="resizer" @mousedown="startResize">
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div class="arrow-container">
-                <div class="arrow"> &lt; </div>
-            </div>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div id="editor" ref="editor">
-            <TextEditor />
-        </div>
+        <ResizerComponent @mousedown="startResize" />
+        <TextEditor id="editor" ref="editor" />
     </div>
 </template>
 
@@ -41,13 +25,14 @@
 import TextEditor from './TextEditor.vue'
 import LeafletMap from './LeafletMap.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
-
+import ResizerComponent from './ResizerComponent.vue';
 export default {
 
     name: 'CompleteEditor',
     components: {
         TextEditor,
-        LeafletMap
+        LeafletMap,
+        ResizerComponent
     },
 
     data() {

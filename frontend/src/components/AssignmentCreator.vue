@@ -16,24 +16,8 @@
 
     <LeafletMap id="map" @click="removeDropdown" />
     <div class="editor-container" ref="editorContainer" @click="removeDropdown">
-        <div class="resizer" @mousedown="startResize">
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div class="arrow-container">
-                <div class="arrow"> &lt; </div>
-            </div>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div id="editor" ref="editor">
-            <AssignmentTextEditor />
-        </div>
+        <ResizerComponent @mousedown="startResize" />
+        <AssignmentTextEditor id="editor" ref="editor" />
     </div>
     <UploadMapLayer id="upload" />
 
@@ -45,13 +29,15 @@ import AssignmentTextEditor from './AssignmentTextEditor.vue'
 import LeafletMap from './LeafletMap.vue'
 import UploadMapLayer from './UploadMapLayer.vue'
 import 'quill/dist/quill.snow.css'; // or 'quill/dist/quill.bubble.css' for the Bubble theme
+import ResizerComponent from './ResizerComponent.vue'
 
 export default {
     name: 'AssignmentCreator',
     components: {
         AssignmentTextEditor,
         LeafletMap,
-        UploadMapLayer
+        UploadMapLayer,
+        ResizerComponent
     },
     data() {
         return {
