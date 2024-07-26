@@ -20,6 +20,7 @@ export default {
 
 <style scoped>
 .navbarcontainer {
+    background-color: #F5E9C6;
     display: flex;
     justify-content: space-between;
     align-items: center;

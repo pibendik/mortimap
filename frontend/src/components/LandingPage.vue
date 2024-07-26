@@ -2,30 +2,92 @@
     <div class="landing-page">
         <main>
             <!-- Main content -->
-            <section class="hero">
+            <section class="hero centerer">
                 <div class="container">
                     <h1>MORTIMAP</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>GIS (Geographic Information System) technology is becoming increasingly important in various
+                        industries, including urban planning, environmental management, transportation, and emergency
+                        response. It allows professionals to analyze and visualize spatial data, enabling them to make
+                        informed decisions and solve complex problems. However, working with GIS data often requires
+                        manual labor, which can be time-consuming and prone to errors.</p>
+                    <p>Mortimap is revolutionizing the way GIS data is processed by providing a platform that leverages
+                        crowd-sourcing to streamline manual labor in a rigorous and user-friendly manner. By harnessing
+                        the power of experts in the field, Mortimap ensures that the data collected is accurate and
+                        reliable. The platform offers a range of tools and features that make it easy for users to
+                        contribute their expertise and collaborate with others.</p>
+                    <p>With Mortimap, experts can easily access and contribute to a vast amount of spatial data, making
+                        it more accessible and useful for decision-making. The platform provides an "idiot-proof"
+                        interface that simplifies complex GIS tasks, allowing users to focus on their expertise rather
+                        than technical challenges. By democratizing GIS technology, Mortimap empowers professionals from
+                        various backgrounds to contribute to the development of smarter and more sustainable solutions.
+                    </p>
+                    <img class="wallpaperimg" src="@/assets/previewapp.png" alt="Urban Planning" />
+
                 </div>
             </section>
 
-            <section class="features">
+            <section class="features centerer">
                 <div class="container">
-                    <h2>Features</h2>
+                    <h2>Benefits of Visualizing GIS Data by Toggling Map Layers</h2>
+
                     <div class="feature">
-                        <img class="wallpaperimg" src="@/assets/previewapp.png" alt="Feature Image" />
-                        <h3>Feature 1</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Urban Planning</h3>
+
+                        <img class="wallpaperimg" src="@/assets/urban_planning.jpg" alt="Urban Planning" />
+                        <p>
+                            Urban planners can toggle map layers to visualize different aspects of a city, such as
+                            zoning regulations, transportation networks, and population density. This helps them make
+                            informed decisions about land use, infrastructure development, and urban design.
+                        </p>
                     </div>
+
                     <div class="feature">
-                        <img class="smallimg" src="@/assets/layers.jpg" alt="Feature Image" />
-                        <h3>Feature 2</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Environmental Management</h3>
+
+                        <img class="wallpaperimg" src="@/assets/environmental_management.png"
+                            alt="Environmental Management" />
+                        <p>
+                            Environmentalists can use map layers to analyze and monitor various environmental factors,
+                            such as vegetation cover, water bodies, and wildlife habitats. By toggling different layers,
+                            they can identify areas that require conservation efforts or are at risk of environmental
+                            degradation.
+                        </p>
                     </div>
+
                     <div class="feature">
-                        <img class="smallimg" src="@/assets/layers.jpg" alt="Feature Image" />
-                        <h3>Feature 3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Transportation</h3>
+
+                        <img class="wallpaperimg" src="@/assets/transportation.jpg" alt="Transportation" />
+                        <p>
+                            In the transportation industry, toggling map layers can provide valuable insights into
+                            traffic patterns, road conditions, and public transportation routes. This information helps
+                            optimize transportation systems, improve traffic flow, and enhance the overall efficiency of
+                            transportation networks.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>Emergency Response</h3>
+
+                        <img class="wallpaperimg" src="@/assets/emergency_response.jpg" alt="Emergency Response" />
+                        <p>
+                            During emergencies, such as natural disasters or public health crises, toggling map layers
+                            can be crucial for emergency responders. They can overlay layers showing evacuation routes,
+                            medical facilities, and affected areas to coordinate rescue efforts, allocate resources, and
+                            make informed decisions in real-time.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>Real Estate</h3>
+
+                        <img class="wallpaperimg" src="@/assets/real_estate.jpg" alt="Real Estate" />
+                        <p>
+                            Real estate professionals can benefit from toggling map layers to assess property values,
+                            proximity to amenities, and neighborhood characteristics. By visualizing different layers,
+                            they can identify potential investment opportunities, understand market trends, and provide
+                            valuable information to clients.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -47,15 +109,28 @@ export default {
 </script>
 
 <style scoped>
+p {
+    text-align: left;
+}
+
+.centerer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container {
+    max-width: 60%;
+}
+
 .features {
-    background-color: #f8f9fa;
     padding: 2rem 0;
     text-align: center;
 
 }
 
 .hero {
-    background-color: #f8f9fa;
     padding: 3rem 0 2rem;
     text-align: center;
 
@@ -67,7 +142,7 @@ export default {
 }
 
 .wallpaperimg {
-    width: 80%;
+    width: 100%;
     height: 300px;
     object-fit: cover;
     object-position: top;

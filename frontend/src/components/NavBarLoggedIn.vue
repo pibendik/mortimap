@@ -71,6 +71,7 @@ li:hover {
 
 
 .navbarcontainer {
+    background-color: #2195f330;
     display: flex;
     justify-content: space-between;
     align-items: center;

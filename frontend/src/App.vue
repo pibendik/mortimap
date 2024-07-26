@@ -50,4 +50,10 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
 }
+
+/* Remove default list styles for the navbars (hopefull doesn't mess anything up anywhere else.) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 </style>
