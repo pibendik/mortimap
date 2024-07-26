@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  mortimap:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY-}mortimap
+    container_name: mortimap
+    sysctls:
+      - net.ipv4.tcp_keepalive_time=200
+    ports:
+      - ${API_PORT:-8000}:8000
+    restart: always
+    volumes:
+      - .:/app
