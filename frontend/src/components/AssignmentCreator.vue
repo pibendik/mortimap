@@ -3,7 +3,7 @@
         <div class="hamburger-menu" @click="toggleDropdown">
             &#9776; <!-- Hamburger icon -->
         </div>
-        <div class="dropdown hamburgerdropdown" v-if="isDropdownVisible">
+        <div class="hamburgerdropdown" v-if="isDropdownVisible">
             <ul>
                 <li><router-link to="/">Home</router-link></li>
                 <li><router-link to="/admin">Admin</router-link></li>
@@ -205,23 +205,23 @@ a {
 .dropdown {
     position: absolute;
     right: 0;
-    z-index: 1;
+    top: 0;
 }
 
-.dropdown ul {
+ul {
     list-style-type: none;
     padding: 0;
 }
 
-.dropdown ul li {
+ul li {
     padding: 12px 16px;
 }
 
-.dropdown ul li:hover {
+ul li:hover {
     background-color: #f1f1f1;
 }
 
-.dropdown hr {
+hr {
     margin: 10px 0;
 }
 </style>

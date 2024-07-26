@@ -8,6 +8,7 @@
             <li class="highlight dropdown">
                 Account
                 <ul class="dropdown-content">
+                    <li>Account</li>
                     <li>john.lennon@proton.com</li>
                     <li>Account Settings</li>
                     <li>Subscription</li>
@@ -60,7 +61,8 @@ li:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     right: 0;
-    top: 3rem;
+    top: 0;
+    text-align: right;
 }
 
 .dropdown:hover .dropdown-content {

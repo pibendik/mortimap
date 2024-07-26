@@ -46,7 +46,7 @@ const router = createRouter({
       path: "/assignment-creator",
       name: "AssignmentCreator",
       component: AssignmentCreator,
-      meta: { hideNavbar: false },
+      meta: { hideNavbar: true },
     },
   ],
 });

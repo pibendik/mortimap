@@ -15,6 +15,7 @@
                 <li>Plans and pricing</li>
                 <li class="highlight dropdown">Templates
                     <ul class="dropdown-content">
+                        <li>Templates</li>
                         <li>ROS analyser (Norway)</li>
                         <li>Air Quality measuring stations</li>
                         <li>Industry Proximity</li>
@@ -24,6 +25,7 @@
                 <li class="highlight dropdown">
                     Help
                     <ul class="dropdown-content">
+                        <li>Help</li>
                         <li>Why MORTIMAP?</li>
                         <li>Documentation</li>
                         <li>Contact us</li>
@@ -67,7 +69,7 @@ li:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left: 0;
-    top: 3rem;
+    top: 0;
 }
 
 .dropdown:hover .dropdown-content {

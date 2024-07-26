@@ -183,27 +183,4 @@ a {
     background-color: white;
     box-shadow: 0 7px 9px rgba(0, 0, 0, 0.2);
 }
-
-.dropdown {
-    position: absolute;
-    right: 0;
-    z-index: 1;
-}
-
-.dropdown ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.dropdown ul li {
-    padding: 12px 16px;
-}
-
-.dropdown ul li:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown hr {
-    margin: 10px 0;
-}
 </style>
