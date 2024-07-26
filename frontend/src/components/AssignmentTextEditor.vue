@@ -1,6 +1,7 @@
 <template>
   <div class="text-editor-container">
     <HowToMakeAssignments />
+    <InputQuill />
     <div class="button-container">
       <button class="plus-button">+</button>
     </div>
@@ -9,10 +10,12 @@
 
 <script>
 import HowToMakeAssignments from './HowToMakeAssignments.vue';
+import InputQuill from './InputQuill.vue'; // Adjust the path as necessary
 
 export default {
   components: {
     HowToMakeAssignments,
+    InputQuill
   }
 }
 </script>

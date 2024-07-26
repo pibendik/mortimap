@@ -39,18 +39,14 @@
             <p>By following these guidelines, you can create assignments that not only assess students' knowledge and
                 skills but also enhance their learning experience.</p>
         </div>
-        <InputQuill />
     </div>
 </template>
 
 <script>
-import InputQuill from './InputQuill.vue'; // Adjust the path as necessary
 
 export default {
     name: 'HowToMakeAssignments',
-    components: {
-        InputQuill
-    }
+
 };
 </script>
 
