@@ -1,28 +1,38 @@
 version: '3.8'
 services:
   frontend:
-    build: ./frontend
-    ports:
-      - "8080:8080"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
-    depends_on:
-      - backend
-  backend:
-    build: ./backend
+      - /app/node_modules
     ports:
-      - "8000:8000"
+      - "8080:8080"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run serve
+    depends_on:
+      - mortimap_backend
+    networks:
+      - mortimap_network
+      
+  mortimap_backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY-}mortimap
+    container_name: mortimap
+    sysctls:
+      - net.ipv4.tcp_keepalive_time=200
+    ports:
+      - ${API_PORT:-8000}:8000
+    restart: always
     volumes:
       - ./backend:/app
-    depends_on:
-      - db
-  db:
-    image: "nouchka/sqlite3"
-    volumes:
-      - ./data:/root/db
-  filestorage:
-    image: "nginx"
-    volumes:
-      - ./filestorage:/usr/share/nginx/html:ro
-    ports:
-      - "8081:80"
+    networks:
+      - mortimap_network
+
+networks:
+  mortimap_network:
+    driver: bridge
