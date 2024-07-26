@@ -3,7 +3,7 @@
         <div class="hamburger-menu" @click="toggleDropdown">
             &#9776; <!-- Hamburger icon -->
         </div>
-        <div class="hamburgerdropdown" v-if="isDropdownVisible">
+        <div class="dropdown hamburgerdropdown" v-if="isDropdownVisible">
             <ul>
                 <li><router-link to="/">Home</router-link></li>
                 <li><router-link to="/admin">Admin</router-link></li>
@@ -14,8 +14,8 @@
         </div>
     </div>
 
-    <LeafletMap id="map" />
-    <div class="editor-container" ref="editorContainer">
+    <LeafletMap id="map" @click="removeDropdown" />
+    <div class="editor-container" ref="editorContainer" @click="removeDropdown">
         <div class="resizer" @mousedown="startResize">
             <div class="dots">
                 <div class="dot"></div>
@@ -62,6 +62,9 @@ export default {
         toggleDropdown() {
             this.isDropdownVisible = !this.isDropdownVisible;
         },
+        removeDropdown() {
+            this.isDropdownVisible = false;
+        },
 
         startResize(event) {
             // Prevent default action to avoid selecting text during drag, etc.
@@ -87,7 +90,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 #upload {
     z-index: 500;
     position: absolute;
@@ -172,10 +175,6 @@ export default {
     display: flex;
 }
 
-body {
-    margin: 0;
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -196,13 +195,11 @@ a {
     padding: 20px;
 }
 
+
 .hamburgerdropdown {
     background-color: white;
     box-shadow: 0 7px 9px rgba(0, 0, 0, 0.2);
     top: 4rem;
-}
-
-.dropdown {
     position: absolute;
     right: 0;
     top: 0;
