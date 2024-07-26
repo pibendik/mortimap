@@ -5,13 +5,14 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/admin">Admin</router-link></li>
             <li><router-link to="/editor">Editor</router-link></li>
-            <li class="highlight dropdown">
+            <li class="highlight dropdown account">
                 Account
                 <ul class="dropdown-content">
                     <li>Account</li>
                     <li>john.lennon@proton.com</li>
                     <li>Account Settings</li>
                     <li>Subscription</li>
+                    <hr>
                     <li @click="handleLogout">Log out
                     </li>
                 </ul>
@@ -63,6 +64,7 @@ li:hover {
     right: 0;
     top: 0;
     text-align: right;
+    padding: 0;
 }
 
 .dropdown:hover .dropdown-content {
@@ -78,32 +80,18 @@ li:hover {
     padding: 0 1rem;
 }
 
-
-.login-button {
-    background-color: #4CAF50;
-    color: white;
+.account {
+    background-color: transparent;
+    border: 1px solid #4CAF50;
     border-radius: 105px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.signup-button {
-    background-color: #2196F3;
-    color: white;
-    border-radius: 105px;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.login-button:hover {
+.account:hover {
     background-color: rgb(215, 113, 113);
-    color: #4CAF50;
     border-radius: 105px;
 }
 
-.signup-button:hover {
-    background-color: rgb(68, 27, 27);
-    color: #2196F3;
-    border-radius: 105px;
-}
 
 .padding {
     margin-left: 1rem;

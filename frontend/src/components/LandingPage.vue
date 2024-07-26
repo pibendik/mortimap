@@ -93,6 +93,42 @@
                     </div>
                 </div>
             </section>
+            <section class="reviews centerer">
+                <div class="container">
+                    <h2>Reviews and Sponsors</h2>
+
+                    <div class="review">
+                        <img class="smallimg" src="@/assets/hillbom.jpeg" alt="Morten Hillbom" />
+                        <blockquote class="review-quote">
+                            <p class="quote">"Mortimap is an absolute game-changer in the world of GIS. It is a monumental leap
+                                forward in terms of efficiency, accuracy, and user-friendliness. I have been working
+                                with GIS for over 20
+                                years, and I can confidently say that Mortimap is going to revolutionize the industry.
+                                It will become
+                                ubiquitous for anyone working with spatial data. The platform's advanced features,
+                                intuitive interface, and seamless collaboration capabilities make it the ultimate tool
+                                for
+                                professionals in the field. Mortimap is a masterpiece that will shape the future of
+                                GIS."</p>
+                            <footer class="review-author">- Morten Hillbom, GIS Expert</footer>
+                        </blockquote>
+                    </div>
+
+                    <hr>
+                    <div class="sponsor">
+                        <img class="smallimg" src="@/assets/celsia-logo.svg" alt="Sponsor Logo" />
+                        <p class="sponsor-description">We are proud to be sponsored by Celsia, a leading
+                            provider of pure awesomeness and other solutions. Their support has been instrumental in the
+                            development and success of Mortimap. Without them, even the very name of Mortimap would
+                            never have been possible.
+                            Together, we are transforming the way GIS data is processed and empowering professionals
+                            worldwide.</p>
+                            <p class="quote">
+                                [...] That is why we pledge one million million NOK to Mortimap.
+                            </p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer>
@@ -151,5 +187,22 @@ p {
     height: 300px;
     object-fit: cover;
     object-position: top;
+}
+
+.reviews {
+    padding: 3rem;
+    text-align: center;
+    background-color: rgb(233, 233, 233);
+}
+
+.review-author {
+    font-style: italic;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: gray;
 }
 </style>

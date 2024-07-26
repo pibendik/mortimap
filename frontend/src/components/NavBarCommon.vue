@@ -6,7 +6,7 @@
         </div>
         <ul class="navbar">
 
-            <ul class="nav-list">
+            <ul>
                 <li>
                     Features
 
@@ -70,6 +70,7 @@ li:hover {
     z-index: 1;
     left: 0;
     top: 0;
+    padding: 0;
 }
 
 .dropdown:hover .dropdown-content {

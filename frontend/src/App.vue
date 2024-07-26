@@ -56,4 +56,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+hr {
+  border: none;
+  border-top: 1px solid grey;
+  margin: 1rem 0;
+}
 </style>

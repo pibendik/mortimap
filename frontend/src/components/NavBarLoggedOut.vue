@@ -53,14 +53,12 @@ li:hover {
 }
 
 .login-button:hover {
-    background-color: rgb(215, 113, 113);
-    color: #4CAF50;
+    background-color: rgb(34, 97, 0);
     border-radius: 105px;
 }
 
 .signup-button:hover {
-    background-color: rgb(68, 27, 27);
-    color: #2196F3;
+    background-color: #004782;
     border-radius: 105px;
 }
 
