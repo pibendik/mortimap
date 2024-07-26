@@ -5,6 +5,8 @@
             <section class="hero centerer">
                 <div class="container">
                     <h1>MORTIMAP</h1>
+                    <img class="smallimg" src="@/assets/layers.jpg" alt="map layers illustration" />
+
                     <p>GIS (Geographic Information System) technology is becoming increasingly important in various
                         industries, including urban planning, environmental management, transportation, and emergency
                         response. It allows professionals to analyze and visualize spatial data, enabling them to make
@@ -137,8 +139,11 @@ p {
 }
 
 .smallimg {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 200px;
+    max-height: 200px;
+    float: left;
+    margin-right: 1.6rem;
+    margin-bottom: 1rem;
 }
 
 .wallpaperimg {
