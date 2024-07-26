@@ -59,8 +59,4 @@ export default {
 
 <style scoped>
 /* Quill's Snow theme requires additional padding */
-.editor {
-    /* Adjust the height as needed */
-    height: 300px;
-}
 </style>

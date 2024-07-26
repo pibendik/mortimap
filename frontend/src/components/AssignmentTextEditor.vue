@@ -22,6 +22,10 @@ export default {
 
 
 <style scoped>
+.text-editor-container {
+  margin-right: 1rem;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
