@@ -21,8 +21,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: ${DOCKER_REGISTRY-}mortimap
-    container_name: mortimap
+    image: ${DOCKER_REGISTRY-}mortimap_backend
+    container_name: mortimap_backend
     sysctls:
       - net.ipv4.tcp_keepalive_time=200
     ports:

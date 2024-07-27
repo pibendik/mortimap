@@ -3,6 +3,7 @@
         <div ref="editor">
         </div> <!-- Quill will attach the editor here -->
         <button @click="saveContentToFile">Save to file</button>
+        <button @click="saveContentToFileStorage">Save to file storage</button>
     </div>
 </template>
 
@@ -25,6 +26,34 @@ export default {
             // Programmatically click the link to trigger the download
             link.click();
             // TODO: use a backend for storing files!
+        },
+        async saveContentToFileStorage() {
+            // Ensure content is up-to-date
+            this.content = this.quill.root.innerHTML;
+            // Create a Blob from the content
+            const blob = new Blob([this.content], { type: 'application/json' });
+            // Create a FormData object
+            const formData = new FormData();
+            formData.append('file', blob, 'content.json');
+
+            try {
+                const response = await fetch('http://localhost:8000/assignments/files/single', {
+                    method: 'POST',
+                    headers: {
+                        'accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('File saved successfully:', result);
+                } else {
+                    console.error('Error saving file:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error saving file:', error);
+            }
         }
     },
     mounted() {
