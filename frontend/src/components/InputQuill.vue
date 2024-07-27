@@ -4,6 +4,10 @@
         </div> <!-- Quill will attach the editor here -->
         <button @click="saveContentToFile">Save to file</button>
         <button @click="saveContentToFileStorage">Save to file storage</button>
+        <button @click="loadContentFromFileStorage">Load contents from filestorage</button>
+        <span style="font-size: small;">...to be replaced by auto saving on un-focus, every so and so many
+            changes</span>
+
     </div>
 </template>
 
@@ -25,13 +29,14 @@ export default {
             link.download = 'content.json';
             // Programmatically click the link to trigger the download
             link.click();
-            // TODO: use a backend for storing files!
         },
         async saveContentToFileStorage() {
-            // Ensure content is up-to-date
-            this.content = this.quill.root.innerHTML;
-            // Create a Blob from the content
-            const blob = new Blob([this.content], { type: 'application/json' });
+            // Get the content as a Delta object
+            const delta = this.quill.getContents();
+            // Convert the Delta object to a JSON string
+            const jsonString = JSON.stringify(delta);
+            // Create a Blob from the JSON string
+            const blob = new Blob([jsonString], { type: 'application/json' });
             // Create a FormData object
             const formData = new FormData();
             formData.append('file', blob, 'content.json');
@@ -53,6 +58,27 @@ export default {
                 }
             } catch (error) {
                 console.error('Error saving file:', error);
+            }
+        },
+        async loadContentFromFileStorage() {
+            try {
+                const response = await fetch('http://localhost:8000/assignments/files/content.json', {
+                    method: 'GET',
+                    headers: {
+                        'accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('File loaded successfully:', result);
+                    // Set the content of the Quill editor to the loaded content
+                    this.quill.setContents(result);
+                } else {
+                    console.error('Error loading file:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error loading file:', error);
             }
         }
     },
