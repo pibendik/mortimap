@@ -3,11 +3,11 @@
         <div ref="editor">
         </div> <!-- Quill will attach the editor here -->
         <button @click="saveContentToFile">Save to file</button>
-        <button @click="saveContentToFileStorage">Save to file storage</button>
+        <button @click="saveDeltaContentToAPI">Save to file storage</button>
+        <button @click="saveHTMLContentToAPI">Save to file storage as HTML</button>
         <button @click="loadContentFromFileStorage">Load contents from filestorage</button>
         <span style="font-size: small;">...to be replaced by auto saving on un-focus, every so and so many
             changes</span>
-
     </div>
 </template>
 
@@ -30,7 +30,35 @@ export default {
             // Programmatically click the link to trigger the download
             link.click();
         },
-        async saveContentToFileStorage() {
+        async saveHTMLContentToAPI() {
+            // Get the content as HTML
+            const html = this.quill.root.innerHTML;
+            // Create a Blob from the HTML
+            const blob = new Blob([html], { type: 'application/json' });
+            // Create a FormData object
+            const formData = new FormData();
+            formData.append('file', blob, 'content.html');
+
+            try {
+                const response = await fetch('http://localhost:8000/assignments/files/single', {
+                    method: 'POST',
+                    headers: {
+                        'accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('File saved successfully:', result);
+                } else {
+                    console.error('Error saving file:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error saving file:', error);
+            }
+        },
+        async saveDeltaContentToAPI() {
             // Get the content as a Delta object
             const delta = this.quill.getContents();
             // Convert the Delta object to a JSON string
@@ -80,7 +108,28 @@ export default {
             } catch (error) {
                 console.error('Error loading file:', error);
             }
-        }
+        }, async displayLoadedContentPrettily() {
+            try {
+                const response = await fetch('http://localhost:8000/assignments/files/content.html', {
+                    method: 'GET',
+                    headers: {
+                        'accept': 'text/html'
+                    }
+                });
+
+                if (response.ok) {
+                    const result = await response.text();
+                    console.log('display-file loaded successfully:', result);
+
+                    // Directly use the loaded HTML content
+                    document.getElementById('contentdisplayer').innerHTML = result;
+                } else {
+                    console.error('Error loading file:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error loading file:', error);
+            }
+        },
     },
     mounted() {
         // Initialize Quill on the mounted hook

@@ -1,22 +1,6 @@
 <template>
     <div>
-        <div class="instruction">
-            <h1>Risk Analysis Instruction</h1>
-            <p>
-                To perform a risk analysis for floods, follow these steps:
-            </p>
-            <ol>
-                <li>Open the map application.</li>
-                <li>Zoom in to the desired area.</li>
-                <li>Locate the map layers panel.</li>
-                <li>Click on the "Layers" button to expand the panel.</li>
-                <li>Scroll through the available layers and find the one related to floods.</li>
-                <li>Select the flood layer by clicking on it.</li>
-                <li>Observe the map for areas highlighted in blue or marked as flood-prone.</li>
-                <li>Take screenshots of the map showing the flood layer.</li>
-                <li>Upload the screenshots below:</li>
-            </ol>
-        </div>
+        <div class="instruction" v-html="instructionContent"></div>
         <InputQuill />
     </div>
 </template>
@@ -28,6 +12,38 @@ export default {
     name: 'AssignmentText',
     components: {
         InputQuill
+    },
+    data() {
+        return {
+            instructionContent: ''
+        };
+    },
+    methods: {
+        async fetchInstructionContent() {
+            try {
+                const response = await fetch('http://localhost:8000/assignments/files/content.html', {
+                    method: 'GET',
+                    headers: {
+                        'accept': 'text/html'
+                    }
+                });
+
+                if (response.ok) {
+                    const result = await response.text();
+                    console.log('display-file loaded successfully:', result);
+
+                    // Directly use the loaded HTML content
+                    this.instructionContent = result;
+                } else {
+                    console.error('Error loading file:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error loading file:', error);
+            }
+        },
+    },
+    mounted() {
+        this.fetchInstructionContent();
     }
 };
 </script>

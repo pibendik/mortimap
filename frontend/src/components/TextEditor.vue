@@ -1,8 +1,6 @@
 <template>
   <div class="text-editor-container">
     <AssignmentText />
-    <AssignmentText />
-    <AssignmentText />
   </div>
 </template>
 
