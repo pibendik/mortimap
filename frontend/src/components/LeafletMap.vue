@@ -23,6 +23,10 @@ export default {
             attribution: 'Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
         });
 
+        const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+
         // Custom icon for the marker
         const customIcon = L.icon({
             iconUrl: personIcon, // Specify the path to your pin image
@@ -32,7 +36,7 @@ export default {
         });
 
         // Marker with custom icon
-        const marker = L.marker([63.839833, 20.172167], { icon: customIcon }).addTo(map);
+        const marker = L.marker([63.839833, 20.172167], { icon: customIcon });
 
         // Popup with text
         marker.bindPopup("Bendik grew up here").openPopup();
@@ -44,7 +48,8 @@ export default {
         };
 
         const overlayMaps = {
-            "Marker": marker
+            "Marker": marker,
+            "Topographic": topoLayer,
         };
 
         L.control.layers(baseMaps, overlayMaps, { position: 'topleft', collapsed: false }).addTo(map);
